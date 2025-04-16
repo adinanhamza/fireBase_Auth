@@ -24,7 +24,9 @@ Future<void>signInWithEmail(String email,String password)async{
   }
 }
 
-User? user = FirebaseAuth.instance.currentUser;
+
+
+
 
 
 }

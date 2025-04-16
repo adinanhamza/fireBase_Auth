@@ -8,38 +8,9 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  bool isLogin = false;
+ 
 
-  // Future<void> handleAuth() async {
-  //   final email = _emailController.text.trim();
-  //   final password = _passwordController.text.trim();
-
-  //   try {
-  //     if (isLogin) {
-  //       await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //         email: email,
-  //         password: password,
-  //       );
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(content: Text("Logged in successfully!")),
-  //       );
-  //     } else {
-  //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //         email: email,
-  //         password: password,
-  //       );
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         SnackBar(content: Text("Account created successfully!")),
-  //       );
-  //     }
-  //   } catch (e) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(content: Text("Error: ${e.toString()}")),
-  //     );
-  //   }
-  // }
+  
 
   @override
   Widget build(BuildContext context) {
