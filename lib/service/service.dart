@@ -5,8 +5,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class UserService {
 
+  User? user = FirebaseAuth.instance.currentUser;
+
 Future <void>signUpWithEmail(String email,String password)async{
-try {
+  try {
   await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
   log('user registered!');
 }on FirebaseAuthException catch (e) {
