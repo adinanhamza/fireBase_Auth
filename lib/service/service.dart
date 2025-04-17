@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class UserService {
 
-  User? user = FirebaseAuth.instance.currentUser;
+  User? user ;
 
 Future <void>signUpWithEmail(String email,String password)async{
   try {
@@ -20,9 +20,12 @@ Future <void>signUpWithEmail(String email,String password)async{
 Future<void>signInWithEmail(String email,String password)async{
   try {
     await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-    log('user loged in !');
+  
+    log('user loged in ! ${FirebaseAuth.instance.currentUser?.email}');
+   
   }on FirebaseAuthException catch (e) {
     log('user login failed ${e.message}');
+   
   }
 }
 

@@ -14,18 +14,19 @@ UserService userService = UserService();
 Future<void>createWithEmail()async{
   try {
     await userService.signUpWithEmail(emailController.text.trim(), passwordController.text.trim());
-// log('registered user success !');
   }on FirebaseAuthException catch (e) {
     log('error in register ${e.message}');
   }
 }
 
-Future<void>loginWithEmail()async{
+Future<bool>loginWithEmail()async{
   try {
     await userService.signInWithEmail(emailController.text.trim(), passwordController.text.trim());
-    // log('Login user success !');
+  
+    return true;
   } on FirebaseAuthException catch  (e) {
      log('error in Login ${e.message}');
+     return false;
   }
   }
 
@@ -34,6 +35,5 @@ isLogin = !isLogin;
 notifyListeners();
   }
 }
-
 
 
