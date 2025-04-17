@@ -1,6 +1,8 @@
 import 'package:auth_firebase/firebase_options.dart';
 import 'package:auth_firebase/view/auth.dart';
+import 'package:auth_firebase/view/home.dart';
 import 'package:auth_firebase/viewmodel/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,10 +20,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return ChangeNotifierProvider(
 create: (context) => UserProvider(),
       child: MaterialApp(
-        home:AuthPage() ,
+        home: user != null ? Home() : AuthPage(),
         debugShowCheckedModeBanner: false,
       ),
     );
