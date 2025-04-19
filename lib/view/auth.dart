@@ -32,31 +32,31 @@ class _AuthPageState extends State<AuthPage> {
 
                   ElevatedButton(
                     onPressed: () async {
-                      //                  if(value.isLogin){
-                      //                   value.loginWithEmail();
-                      //                   bool isLogined = await Provider.of<UserProvider>(context,listen: false).loginWithEmail();
-                      // if(isLogined){
-                      //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()));
-                      // }               else{
-                      //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login failed ')));
-                      // }
-                      //                  }else{
-                      //                   value.createWithEmail();
-                      //                  }
-                      value.isLogin
-                          ? await value.loginWithEmail().then((isLogined) {
-                            isLogined
-                                ? Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Home(),
-                                  ),
-                                )
-                                : ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('Login failed')),
-                                );
-                          })
-                          : await value.createWithEmail();
+                                       if(value.isLogin){
+                              final isLogined =        await   value.loginWithEmail();
+
+                      if(isLogined){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()));
+                      }               else{
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login failed ')));
+                      }
+                                       }else{
+                                 await        value.createWithEmail();
+                                       }
+                      // value.isLogin4
+                      //     ? await value.loginWithEmail().then((isLogined) {
+                      //       isLogined
+                      //           ? Navigator.pushReplacement(
+                      //             context,
+                      //             MaterialPageRoute(
+                      //               builder: (context) => Home(),
+                      //             ),
+                      //           )
+                      //           : ScaffoldMessenger.of(context).showSnackBar(
+                      //             SnackBar(content: Text('Login failed')),
+                      //           );
+                      //     })
+                      //     : await value.createWithEmail();
                     },
                     child: Text(value.isLogin ? 'Log In' : 'Sign Up'),
                   ),

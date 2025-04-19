@@ -1,5 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:auth_firebase/viewmodel/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 class Home extends StatelessWidget {
@@ -7,11 +8,19 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-final user = FirebaseAuth.instance.currentUser;
+
+final userProvider = Provider.of<UserProvider>(context);
       return SafeArea(child: Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+actions: [
+  IconButton(onPressed: (){
+userProvider.logOutWithEmail(context);
+  }, icon: Icon(Icons.logout))
+],
+
+      ),
       body: Center(
-        child: user != null ? Text('welcome back ${user.email}!'): Text('welcome guest!')
+        child:Text('Welcome to the screen!')
       ),
     ));
   }
